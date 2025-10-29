@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 const app = express();
 import cors from 'cors';
-require('dotenv').config();
+dotenv.config();
 app.use(cors());
 
 import OpenAI from 'openai';
@@ -24,5 +24,10 @@ app.post('/api', async (req, res) => {
 				{ role: 'user', content: prompt },
 			],
 		});
-	} catch (err) {}
+	} catch (err) {
+		console.log(`Error ${err}`);
+	}
 });
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, '0.0.0.0', () => console.log(`✅ Server running on port ${PORT}`));
