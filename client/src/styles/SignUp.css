@@ -1,52 +1,56 @@
-/* ---------- LOGIN PAGE ---------- */
-.login-page {
+.error {
+	color: crimson;
+}
+
+/* ---------- SIGNUP PAGE ---------- */
+.signup-page {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
-	background-color: #f4f9f4; /* soft green tint */
+	background-color: #eef8ee; /* slightly lighter green */
 	font-family: 'Inter', sans-serif;
 }
 
 /* ---------- CONTAINER ---------- */
-.login-container {
+.signup-container {
 	background-color: #ffffff;
 	width: 100%;
-	max-width: 400px;
-	padding: 2.5rem;
+	max-width: 450px;
+	padding: 2.75rem;
 	border-radius: 1rem;
 	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
 	border: 1px solid #e2e2e2;
 	transition: all 0.3s ease;
 }
 
-.login-container:hover {
+.signup-container:hover {
 	box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
 }
 
 /* ---------- TITLE ---------- */
-.login-title {
+.signup-title {
 	text-align: center;
 	margin-bottom: 1.8rem;
 	font-size: 1.75rem;
 	font-weight: 600;
-	color: #4a9c4a;
+	color: #5aa94d;
 }
 
 /* ---------- FORM ---------- */
-.login-form {
+.signup-form {
 	display: flex;
 	flex-direction: column;
 	gap: 1.25rem;
 }
 
-.login-label {
+.signup-label {
 	font-size: 0.95rem;
 	color: #555;
 	margin-bottom: 0.25rem;
 }
 
-.login-input {
+.signup-input {
 	width: 100%;
 	padding: 0.75rem 1rem;
 	border-radius: 8px;
@@ -56,14 +60,14 @@
 	transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.login-input:focus {
-	border-color: #4a9c4a;
-	box-shadow: 0 0 0 3px rgba(74, 156, 74, 0.25);
+.signup-input:focus {
+	border-color: #5aa94d;
+	box-shadow: 0 0 0 3px rgba(90, 169, 77, 0.25);
 }
 
 /* ---------- BUTTON ---------- */
-.login-button {
-	background-color: #4a9c4a;
+.signup-button {
+	background-color: #5aa94d;
 	color: #fff;
 	border: none;
 	padding: 0.9rem;
@@ -74,36 +78,36 @@
 	transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.login-button:hover {
-	background-color: #3f8c3f;
+.signup-button:hover {
+	background-color: #4f9443;
 	transform: translateY(-2px);
 }
 
 /* ---------- FOOTER ---------- */
-.login-footer {
+.signup-footer {
 	margin-top: 1.5rem;
 	text-align: center;
 	font-size: 0.9rem;
 	color: #666;
 }
 
-.login-footer a {
-	color: #4a9c4a;
+.signup-footer a {
+	color: #5aa94d;
 	text-decoration: none;
 	transition: color 0.3s ease;
 }
 
-.login-footer a:hover {
-	color: #3f8c3f;
+.signup-footer a:hover {
+	color: #4f9443;
 }
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 500px) {
-	.login-container {
+	.signup-container {
 		width: 90%;
 		padding: 2rem;
 	}
-	.login-title {
+	.signup-title {
 		font-size: 1.5rem;
 	}
 }
