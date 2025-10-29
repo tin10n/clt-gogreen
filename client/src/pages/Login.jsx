@@ -2,19 +2,15 @@ import { useState } from 'react';
 import '../styles/Login.css';
 export default function Login() {
 	let [formData, setFormData] = useState({
-		name: '',
-		password: '',
 		email: '',
-		zipcode: '',
+		password: '',
 	});
 
 	// setFormData((prev) => ({ ...prev, [name]: value })); Shorthand for updataFormFeild
 	function updateFormFeild(fieldName, fieldValue) {
 		let newFormData = {
-			name: formData.name,
-			password: formData.password,
 			email: formData.email,
-			zipcode: formData.zipcode,
+			password: formData.password,
 		};
 
 		//allows data to be shown when typing
@@ -39,17 +35,35 @@ export default function Login() {
 
 	return (
 		<>
-			<form onSubmit={handleSubmit} className="form--login">
-				<label>Name</label>
-				<input type="text" name="name" onChange={handleChange} value={formData.name} />
-				<label>Password</label>
-				<input type="password" name="password" onChange={handleChange} value={formData.password} />
-				<label>Email</label>
-				<input type="email" name="email" onChange={handleChange} value={formData.email} />
-				<label>Zipcode</label>
-				<input type="number" name="zipcode" onChange={handleChange} value={formData.zipcode} />
-				<button type="submit">Submit</button>
-			</form>
+			<div className="login-page">
+				<div className="login-container">
+					<h2 className="login-title">Welcome Back</h2>
+
+					<form className="login-form" onSubmit={handleSubmit}>
+						<label className="login-label">Email</label>
+						<input className="login-input" name="email" value={formData.email} type="email" onChange={handleChange} />
+
+						<label className="login-label">Password</label>
+						<input
+							className="login-input"
+							name="password"
+							value={formData.password}
+							type="password"
+							onChange={handleChange}
+						/>
+
+						<button className="login-button" type="submit">
+							Log In
+						</button>
+					</form>
+
+					<div className="login-footer">
+						<p>
+							Don’t have an account? <a href="/signup">Sign up here</a>
+						</p>
+					</div>
+				</div>
+			</div>
 		</>
 	);
 }
