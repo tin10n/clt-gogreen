@@ -13,21 +13,9 @@ import "./styles/global.css"
 
 function App() {
 	return (
-	<Router>
-		<Header />
-		
-		<main>
-
-			<SignUp />				
-			
-			<Routes>
-			<Route path="/" element={<Home />} />
-
-			</Routes>
-		</main>
-
-		<Footer />
-	</Router>
+		<>
+			<SignUp />
+		</>
 	);
 }
 
