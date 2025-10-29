@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Validate } from '../components/Validate';
-import '../styles/SignUp.css';
+import '../styles/signup.css';
+
 export default function SignUp() {
 	const [signUpFormData, setSignUpFormData] = useState({
 		name: '',
