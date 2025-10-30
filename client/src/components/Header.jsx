@@ -27,7 +27,7 @@ function Header() {
       {/* Desktop and Tablet Navigation */}
       <ul className={`navbar-nav ${menuOpen ? 'active' : ''}`}>
         <li><Link to="/account" className="nav-link">Account</Link></li>
-        <li><Link to="/rewards" className="nav-link">Rewards</Link></li>
+        <li><Link to="/faq" className="nav-link">FAQ</Link></li>
         <li><Link to="/leaderboard" className="nav-link">Leaderboard</Link></li>
         <li><Link to="/login" className="nav-link">Login</Link></li>
       </ul>
