@@ -40,11 +40,12 @@ Each time you are called, you must generate a *different* eco-friendly task rela
 Assign a difficulty rating called "point_value" on a scale of 1–5 based on the effort required. Make 5 total task with the difficulty 1,2,3,4,5.
 1 = very easy everyday habit (e.g., reuse a water bottle)
 5 = high-effort or high-impact (e.g., plant 10 trees, carpool for a month)
-
+Also add a complete key that is always false
 Return your response strictly as a JSON object:
 {
   "task": string,
-  "point_value": number
+  "point_value": number,
+  "complete" : false
 }
 
 Do not include explanations or formatting — only the JSON object with the array variable being userTask.
