@@ -47,7 +47,7 @@ Return your response strictly as a JSON object:
   "point_value": number
 }
 
-Do not include explanations or formatting — only the JSON object.
+Do not include explanations or formatting — only the JSON object with the array variable being userTask.
 (Seed: ${randomSeed})
 `;
 

@@ -10,8 +10,12 @@ export default function Task() {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/json' },
 				});
-				const data = await response.json();
-				setTask(data);
+				const res = await response.json();
+				const userTask = await res.userTask; //userTask[{task,point_value}]
+				console.log('res:', res);
+				console.log('res.userTask:', res.userTask);
+
+				setTask(userTask);
 			} catch (err) {
 				console.log(`Error ${err}`);
 			}
@@ -19,9 +23,6 @@ export default function Task() {
 		fetchTask();
 	}, []);
 
-	return (
-		<>
-			<p>{}</p>
-		</>
-	);
+	console.log(currentTask);
+	return <></>;
 }
