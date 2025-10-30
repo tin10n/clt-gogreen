@@ -28,7 +28,7 @@ function Header() {
       <ul className={`navbar-nav ${menuOpen ? 'active' : ''}`}>
         <li><Link to="/account" className="nav-link">Account</Link></li>
         <li><Link to="/rewards" className="nav-link">Rewards</Link></li>
-        <li><Link to="/community" className="nav-link">Community</Link></li>
+        <li><Link to="/leaderboard" className="nav-link">Leaderboard</Link></li>
         <li><Link to="/login" className="nav-link">Login</Link></li>
       </ul>
     </header>
