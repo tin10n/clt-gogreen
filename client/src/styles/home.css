@@ -95,7 +95,7 @@ body {
 .kpi-img {
     width: 95px;
     height: auto;
-    margin-bottom: 1rem;
+    margin: 0 auto;
 }
 
 .kpi h3 {
