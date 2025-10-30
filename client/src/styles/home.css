@@ -22,7 +22,7 @@ body {
     padding: 3rem 6rem;
 }
 
-.mascot-container {
+.hero-container {
     flex: 1 1 500px;
     display: flex;
     justify-content: center;
@@ -30,9 +30,9 @@ body {
     margin-bottom: 1.5rem; 
 }
 
-.mascot {
+.hero-img {
     width: 100%;
-    max-width: 650px;  
+    max-width: 660px;  
     height: auto;
     transition: transform 0.3s ease;
     animation: float 3s ease-in-out infinite; 
@@ -183,11 +183,11 @@ body {
         padding: 4rem 2rem;
     }
 
-    .mascot {
-        width: 400px;
+    .hero-img {
+        width: 420px;
     }
 
-    .mascot-container {
+    .hero-container {
         flex: 1;
         margin-bottom: 0;
     }
@@ -233,8 +233,8 @@ body {
         padding: 5rem 3rem;
     }
 
-    .mascot {
-        width: 740px;
+    .hero-img {
+        width: 750px;
     }
 
     .hero-text p {
@@ -281,10 +281,5 @@ body {
 
     .cta p {
         font-size: 1.2rem;
-    }
-
-    .signup-btn {
-        font-size: 1.1rem;
-        padding: 1rem 2.5rem;
     }
 }

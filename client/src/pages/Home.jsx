@@ -1,6 +1,6 @@
 import "../styles/home.css"
 import { useNavigate } from "react-router-dom";
-import Mascot from "../images/mascot.png";
+import Hero from "../images/hero.png";
 import Plant from "../images/plant.png"
 import Recycle from "../images/recycle.png"
 import Footprint from "../images/carbon_footprint.png"
@@ -16,8 +16,8 @@ export default function Home() {
   return (
     <>
       <div className="hero-section">
-        <div className="mascot-container">
-          <img src={Mascot} className="mascot" alt="image of green bean mascot" />
+        <div className="hero-container">
+          <img src={Hero} className="hero-img" alt="image of the earth and people on it" />
         </div>
 
         <div className="hero-text">
