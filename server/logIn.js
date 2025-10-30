@@ -1,45 +1,48 @@
-// server/signin.js
+// server/login.js
 const express = require('express');
+const bcrypt = require('bcryptjs');
+const pool = require('./db');
+
 const router = express.Router();
-const { pool } = require('./db');
-const bcrypt = require('bcrypt');
 
-router.post('/api/signin', async (req, res) => {
-  const { username, password } = req.body;
-  if (!username || !password)
-    return res.status(400).json({ error: 'Missing username or password' });
-
+// POST /api/login
+router.post('/login', async (req, res) => {
   try {
-    const [rows] = await pool.query(
-      'SELECT id, password_hash, first_name, last_name FROM hopehacks.user_profiles WHERE username = ? LIMIT 1',
-      [username]
+    const { usernameOrEmail, password } = req.body;
+    if (!usernameOrEmail || !password) {
+      return res.status(400).json({ error: 'Missing username/email or password' });
+    }
+
+    
+    const [rows] = await pool.execute(
+      `SELECT id, name, email, username, password_hash, zip_code
+       FROM user_info
+       WHERE username = ? OR email = ?
+       LIMIT 1`,
+      [usernameOrEmail, usernameOrEmail.toLowerCase()]
     );
+
     if (rows.length !== 1) return res.status(401).json({ error: 'Invalid credentials' });
 
-    const u = rows[0];
-    const ok = await bcrypt.compare(password, u.password_hash);
+    const user = rows[0];
+    const ok = await bcrypt.compare(password, user.password_hash);
     if (!ok) return res.status(401).json({ error: 'Invalid credentials' });
 
-    // persist identity for this session
-    req.session.userId = u.id;
-    req.session.username = username;
-
+    
     res.json({
       success: true,
-      user: { id: u.id, username, first_name: u.first_name, last_name: u.last_name },
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        username: user.username,
+        zip_code: user.zip_code
+      }
     });
   } catch (err) {
-    console.error('signin error', err);
+    console.error('login error:', err);
     res.status(500).json({ error: 'Server error' });
   }
-});
-
-// Logout
-router.post('/api/logout', (req, res) => {
-  req.session.destroy(() => {
-    res.clearCookie('hh.sid');
-    res.json({ success: true });
-  });
 });
 
 module.exports = router;
