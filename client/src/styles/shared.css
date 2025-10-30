@@ -53,6 +53,8 @@ a {
   color: var(--color-primary);
   background-image: linear-gradient(to right, var(--color-primary), var(--color-accent));
   color: transparent;
+  -webkit-background-clip: text;
+
 }
 
 .menu-toggle {

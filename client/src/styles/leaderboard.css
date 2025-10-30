@@ -1,0 +1,224 @@
+/* leaderboard.css */
+
+:root {
+  --color-primary: #7bc47f;
+  --color-primary-dark: #2e7d32;
+  --color-accent: #a8d5ba;
+  --color-bg: #f9faf9;
+  --color-text: #1f2937;
+  --color-muted: #6b7280;
+}
+
+/* ------------------- BASE ------------------- */
+.leaderboard {
+  background-color: var(--color-bg);
+  padding: 2rem 1rem;
+}
+
+.leaderboard__container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.leaderboard__title {
+  font-size: 1.8rem;
+  color: var(--color-primary-dark);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.leaderboard__subtitle {
+  text-align: center;
+  color: var(--color-muted);
+  margin-bottom: 2rem;
+}
+
+/* ------------------- CARD ------------------- */
+.leaderboard__card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.leaderboard__card-header {
+  background: linear-gradient(to right, var(--color-primary), var(--color-accent));
+  color: white;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leaderboard__card-header h3 {
+  font-size: 1.2rem;
+}
+
+.leaderboard__card-header p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* ------------------- LIST ------------------- */
+.leaderboard__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.leaderboard__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-top: 1px solid #eee;
+  transition: background-color 0.3s ease;
+}
+
+.leaderboard__item:hover {
+  background-color: #f4f4f4;
+}
+
+.leaderboard__item--highlight {
+  background-color: rgba(255, 223, 0, 0.1);
+}
+
+.leaderboard__info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.leaderboard__rank {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-primary-dark);
+  width: 2rem;
+  text-align: center;
+}
+
+.leaderboard__team-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+.leaderboard__team-details {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.leaderboard__score {
+  text-align: right;
+}
+
+.leaderboard__points {
+  color: var(--color-primary-dark);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.leaderboard__trend {
+  color: green;
+  font-size: 0.9rem;
+}
+
+/* ------------------- FOOTER ------------------- */
+.leaderboard__footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #f3f4f6;
+}
+
+.leaderboard__footer p {
+  margin-bottom: 1rem;
+  color: var(--color-muted);
+}
+
+.btn-primary,
+.btn-secondary {
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.btn-secondary {
+  background-color: white;
+  color: var(--color-primary-dark);
+  border: 2px solid white;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ------------------- RESPONSIVENESS ------------------- */
+
+/* Tablet (768px - 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .leaderboard {
+    padding: 3rem 2rem;
+  }
+
+  .leaderboard__title {
+    font-size: 2rem;
+  }
+
+  .leaderboard__item {
+    padding: 1.25rem;
+  }
+
+  .leaderboard__points {
+    font-size: 1.1rem;
+  }
+}
+
+/* Desktop (1024px - 1440px) */
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+  .leaderboard {
+    padding: 4rem 3rem;
+  }
+
+  .leaderboard__container {
+    max-width: 1000px;
+  }
+
+  .leaderboard__title {
+    font-size: 2.2rem;
+  }
+
+  .leaderboard__points {
+    font-size: 1.2rem;
+  }
+}
+
+/* Large Screen (1440px +) */
+@media screen and (min-width: 1440px) {
+  .leaderboard {
+    padding: 5rem 4rem;
+  }
+
+  .leaderboard__container {
+    max-width: 1200px;
+  }
+
+  .leaderboard__title {
+    font-size: 2.5rem;
+  }
+
+  .leaderboard__points {
+    font-size: 1.3rem;
+  }
+}
