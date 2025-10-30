@@ -30,7 +30,7 @@ body {
     margin-bottom: 1.5rem; 
 }
 
-.hero-img {
+.mascot {
     width: 100%;
     max-width: 660px;  
     height: auto;
@@ -183,7 +183,7 @@ body {
         padding: 4rem 2rem;
     }
 
-    .hero-img {
+    .mascot {
         width: 420px;
     }
 
@@ -233,7 +233,7 @@ body {
         padding: 5rem 3rem;
     }
 
-    .hero-img {
+    .mascot {
         width: 750px;
     }
 
