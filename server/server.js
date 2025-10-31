@@ -5,10 +5,9 @@ const app = express();
 import cors from 'cors';
 dotenv.config();
 app.use(cors());
+app.use(express.json());
 
 import OpenAI from 'openai';
-
-app.use(express.json());
 
 const openai = new OpenAI({
 	apiKey: process.env.OPENAI_APIKEY,
@@ -74,6 +73,30 @@ Do not include explanations or formatting — only the JSON object with the arra
 	} catch (err) {
 		console.log(`Error ${err}`);
 	}
+});
+
+// Submit total points
+app.post('/submit-points', async (req, res) => {
+	try {
+		const { points_earned } = await req.body;
+		console.log('Incoming request body:', req.body);
+
+		console.log('Points received:', points_earned);
+		let beanCount = await points_earned;
+		console.log('BeanCount: ' + beanCount);
+		res.send({ message: 'Points saved successfully!', total: beanCount });
+	} catch (err) {
+		console.log('Error' + err);
+		res.send(err);
+	}
+
+	// const points_earned = req.body?.points_earned; // safe optional chaining
+
+	// if (typeof points_earned !== 'number') {
+	// 	return res.status(400).json({ error: 'Invalid points_earned', body: req.body });
+	// }
+
+	// // TODO: save points to database here
 });
 
 const PORT = process.env.PORT || 8000;

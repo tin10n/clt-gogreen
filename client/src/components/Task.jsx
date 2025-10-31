@@ -1,9 +1,7 @@
-import { use } from 'react';
 import { useEffect, useState, useRef } from 'react';
 
 export default function Task() {
 	const [currentTask, setTask] = useState([]);
-	const [toggled, setToggle] = useState(false);
 	const hasFetched = useRef(false);
 
 	async function fetchTask() {
@@ -13,15 +11,19 @@ export default function Task() {
 				headers: { 'Content-Type': 'application/json' },
 			});
 			const res = await response.json();
-			console.log('API Response:', res);
-			setTask(res.userTask || []);
+
+			const tasksWithDefaults = res.userTask.map((task) => ({
+				...task,
+				completed: task.completed ?? false, // ensures controlled input
+			}));
+
+			setTask(tasksWithDefaults);
 		} catch (err) {
 			console.log(`Error ${err}`);
 		}
 	}
 
 	useEffect(() => {
-		// prevent double call in StrictMode
 		if (hasFetched.current) return;
 		hasFetched.current = true;
 
@@ -45,25 +47,49 @@ export default function Task() {
 		});
 	}
 
+	async function handleSubmit(e) {
+		e.preventDefault();
+
+		//if task is completed
+		const totalPoints = currentTask.reduce((acc, task) => {
+			return task.completed ? acc + task.point_value : acc;
+		}, 0);
+
+		console.log('Sending points:', totalPoints);
+
+		try {
+			const response = await fetch('http://localhost:8000/submit-points', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ points_earned: totalPoints }),
+			});
+			const result = await response.json();
+			console.log('Server response:', result);
+		} catch (err) {
+			console.error('Error sending points:', err);
+		}
+	}
+
 	return (
 		<div className="task-container">
-			{currentTask.length > 0 ? (
-				currentTask.map((task, index) => {
-					return (
+			<form onSubmit={handleSubmit}>
+				{currentTask.length > 0 ? (
+					currentTask.map((task, index) => (
 						<div key={index}>
-							<input type="checkbox" onClick={toggleComplete} />
-							<li className="task" key={index}>
+							<input type="checkbox" checked={task.completed} onChange={() => toggleComplete(index)} />
+							<span>
 								{task.task} – {task.point_value} pts
-							</li>
-							<button>Submit for Review</button>
+							</span>
 						</div>
-					);
-				})
-			) : (
-				<p className="loader">Loading tasks...</p>
-			)}
+					))
+				) : (
+					<p>Loading tasks...</p>
+				)}
 
-			<button onClick={fetchTask}>Refresh</button>
+				{currentTask.length > 0 && <button type="submit">Submit Points</button>}
+			</form>
+
+			<button onClick={fetchTask}>Refresh Tasks</button>
 		</div>
 	);
 }
