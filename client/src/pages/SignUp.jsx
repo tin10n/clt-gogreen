@@ -48,7 +48,7 @@ export default function SignUp() {
 		<>
 			<div className="signup-page">
 				<div className="signup-container">
-					<h2 className="signup-title">Join the Movement</h2>
+					<h2 className="signup-title">Ready to GoGreen?</h2>
 					<form className="signup-form" onSubmit={handleSubmit}>
 						<label className="signup-label">Name</label>
 						<input
