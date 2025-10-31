@@ -27,8 +27,8 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link to="/community" className="footer__link" aria-label="Community">
-                Community
+              <Link to="/leaderboard" className="footer__link" aria-label="Leaderboard">
+                Leaderboard
               </Link>
             </li>
           </ul>

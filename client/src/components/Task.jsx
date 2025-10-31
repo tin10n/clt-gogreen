@@ -1,4 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
+import "../styles/task.css";
+import mobileBg from "../images/task_mobilebg.png";
 
 export default function Task() {
 	const [currentTask, setTask] = useState([]);
@@ -71,25 +73,27 @@ export default function Task() {
 	}
 
 	return (
-		<div className="task-container">
-			<form onSubmit={handleSubmit}>
+		<div className='task-page'>
+			<div className="task-container">
 				{currentTask.length > 0 ? (
-					currentTask.map((task, index) => (
-						<div key={index}>
-							<input type="checkbox" checked={task.completed} onChange={() => toggleComplete(index)} />
-							<span>
-								{task.task} – {task.point_value} pts
-							</span>
-						</div>
-					))
+					currentTask.map((task, index) => {
+						return (
+							<div key={index}>
+								<input type="checkbox" onClick={toggleComplete} />
+								<li className="task" key={index}>
+									{task.task} – {task.point_value} pts
+								</li>
+								<button>Submit for Review</button>
+							</div>
+						);
+					})
 				) : (
-					<p>Loading tasks...</p>
+					<p className="loader">Loading tasks...</p>
 				)}
 
-				{currentTask.length > 0 && <button type="submit">Submit Points</button>}
-			</form>
-
-			<button onClick={fetchTask}>Refresh Tasks</button>
+				<button onClick={fetchTask}>Refresh</button>
+			</div>		
 		</div>
+
 	);
 }
