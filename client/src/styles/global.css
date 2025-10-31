@@ -1,1 +1,26 @@
 @import "tailwindcss" prefix(tw);
+
+/* CLT NC COLORS */
+:root {
+  --color-primary-light: #71BF44;
+  --color-primary-dark: #24824A;
+  --color-accent: #A8D5BA;
+  --color-highlight: #F4C542;
+  --color-bg: #ffffff;
+  --color-text: #141E28;
+  --color-secondary-light: #FADD4A;
+  --color-secondary-dark: #EA983E;
+  --color-secondary-blue: #2F70B8;
+  --color-secondary-medb: #02508E;
+   --color-secondary-lred: #E0685E;
+  --color-secondary-red: #DE0505;
+  --color-secondary-dred: #DE0505;
+  --color-secondary-purple: #59489F;
+  --color-secondary-navy: #0C1C35;
+  --color-secondary-dteal: #0A7D8C;
+  --color-secondary-lteal: #00A79C;  --color-secondary-purple: #59489F;
+  --color-secondary-legacy: #007953;
+
+
+
+}
