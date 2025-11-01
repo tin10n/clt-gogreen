@@ -41,6 +41,28 @@ export default function Task() {
 						point_value: task.point_value,
 						completed: !task.completed,
 					};
+        		// Trigger animation only when marking as completed
+					if (!task.completed) {
+						const emojis = ["🫘", "🫛", "🌱", "🌾", "🍀", "🌳", "🌿", "✨", "☀️", "🌸", "🪴", "🍂", "🌻", "🦋", "🌈", "💧"];
+						const burstCount = Math.floor(Math.random() * 6) + 1; // random 1–6
+					
+						for (let j = 0; j < burstCount; j++) {
+							const bean = document.createElement("span");
+							bean.className = "bean";
+							bean.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+							document.body.appendChild(bean);
+
+							const x = Math.random() * window.innerWidth;
+							const y = Math.random() * window.innerHeight;
+							bean.style.left = `${x}px`;
+							bean.style.top = `${y}px`;
+
+							bean.style.animationDuration = `${1.2 + Math.random() * 0.8}s`;
+							bean.style.transform = `scale(${0.8 + Math.random() * 0.6})`;
+
+							setTimeout(() => bean.remove(), 1800);
+						}
+					}
 					return updatedTask;
 				} else {
 					return task;
