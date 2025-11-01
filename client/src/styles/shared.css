@@ -1,14 +1,5 @@
 /* shared.css */
 
-:root {
-  --color-primary: #7BC47F;
-  --color-primary-dark: #2E7D32;
-  --color-accent: #A8D5BA;
-  --color-highlight: #F4C542;
-  --color-bg: #ffffff;
-  --color-text: #1F2937;
-}
-
 /* ------------------- RESET ------------------- */
 * {
   margin: 0;

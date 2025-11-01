@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Layout from './components/Layout';
 import Leaderboard from './pages/Leaderboard';
+import Game from './pages/Game';
 import './styles/global.css';
 
 //because I made a Layout component, we don't need to add Header and Footer component -JL
@@ -23,6 +24,7 @@ function App() {
 					<Route path="/" element={<Home />} />
 					<Route path="/signup" element={<SignUp />} />
 					<Route path="/login" element={<Login />} />
+					<Route path="/game" element={<Game />} />
 					<Route path="/leaderboard" element={<Leaderboard />} />
 					<Route path="/faq" element={<Faq />} />
 				</Routes>

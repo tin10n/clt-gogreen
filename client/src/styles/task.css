@@ -1,6 +1,6 @@
 .task-page {
     height: 100vh;
-    background-image: url("../images/task_mobilebg.png");
+    /* background-image: url("../images/task_mobilebg.png"); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -14,7 +14,7 @@
 
 @media (min-width: 768px) {
     .task-page {
-        background-image: url("../images/task_deskbg.png"); 
+        /* background-image: url("../images/task_deskbg.png");  */
         background-size: cover;
         background-position: center;
     }
