@@ -174,8 +174,8 @@ body {
 
 /* MEDIA QUERIES */
 
-/* Tablets (> 600px) */
-@media (min-width: 600px) {
+/* Tablets */
+@media (min-width: 768px) {
     .hero-section {
         flex-direction: row;
         justify-content: space-around;
@@ -227,8 +227,8 @@ body {
     }
 }
 
-/* Desktops (> 992px) */
-@media (min-width: 992px) {
+/* Desktops */
+@media (min-width: 1024px) {
     .hero-section {
         padding: 5rem 3rem;
     }

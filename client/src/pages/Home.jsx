@@ -4,6 +4,7 @@ import Mascot from "../images/mascot.png";
 import Plant from "../images/plant.png"
 import Recycle from "../images/recycle.png"
 import Footprint from "../images/carbon_footprint.png"
+import "../styles/global.css"
 
 
 export default function Home() {
@@ -16,12 +17,12 @@ export default function Home() {
   return (
     <>
       <div className="hero-section">
-        <div className="mascot-container">
-          <img src={Mascot} className="mascot" alt="image of green bean mascot" />
+        <div className="mascot-container tw:lg:!pl-20">
+          <img src={Mascot} alt="image of green bean mascot" className="mascot" />
         </div>
 
-        <div className="hero-text">
-          <p>Join your neighbors to champion sustainability, compete as districts, and build a proud, greener community. 
+        <div className="hero-text tw:lg:!w-xs">
+          <p className="tw:lg:!w-100">Join your neighbors to champion sustainability, compete as districts, and build a proud, greener community. 
             Every recycled item, dollar saved, and reduced emission makes your area shine on the leaderboard!</p>
           <button className="signup-btn" onClick={handleClick}>GET STARTED</button>
         </div>
