@@ -1,0 +1,285 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #1b4332;
+    background-color: #f6fff8;
+    line-height: 1.6;
+}
+
+/* HERO SECTION */
+.hero-section {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #b7e4c7, #95d5b2);
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 3rem 6rem;
+}
+
+.mascot-container {
+    flex: 1 1 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem; 
+}
+
+.mascot {
+    width: 100%;
+    max-width: 650px;  
+    height: auto;
+    transition: transform 0.3s ease;
+    animation: float 3s ease-in-out infinite; 
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.hero-text {
+    max-width: 700px;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.signup-btn {
+    background-color: #2d6a4f;
+    color: #fff;
+    padding: 0.9rem 2rem;
+    border: none;
+    border-radius: 2rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.signup-btn:hover {
+    background-color: #1b4332;
+    transform: scale(1.05);
+}
+
+/* KPI SECTION */
+.kpis {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.kpi {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+    padding: 2rem 1.5rem;
+    text-align: center;
+}
+
+.kpi-img {
+    width: 95px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.kpi h3 {
+    color: #2d6a4f;
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+
+.kpi p {
+    font-size: 1.2rem;
+}
+
+/* WHY JOIN */
+.why-join {
+    background-color: #d8f3dc;
+    padding: 4rem 1.5rem;
+    text-align: center;
+    border-radius: 1rem;
+    width: 90%;
+    max-width: 1200px;
+    margin: 4rem auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.why-join h2 {
+    font-size: 2rem;
+    color: #1b4332;
+    margin-bottom: 1rem;
+}
+
+.why-join .subtitle {
+    font-size: 1.1rem;
+    color: #2d6a4f;
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.benefits {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.benefit {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.benefit h3 {
+    color: #2d6a4f;
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+}
+
+.benefit p {
+    color: #343a40;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.cta {
+    margin-top: 2rem;
+}
+
+.cta p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #081c15;
+}
+
+/* MEDIA QUERIES */
+
+/* Tablets */
+@media (min-width: 768px) {
+    .hero-section {
+        flex-direction: row;
+        justify-content: space-around;
+        text-align: left;
+        padding: 4rem 2rem;
+    }
+
+    .mascot {
+        width: 400px;
+    }
+
+    .mascot-container {
+        flex: 1;
+        margin-bottom: 0;
+    }
+
+    .hero-text {
+        flex: 1;
+        padding: 0 2rem;
+    }
+
+    .hero-text p {
+        font-size: 1.15rem;
+    }
+
+    .kpis {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .kpi-img {
+        width: 100px;
+    }
+
+    .benefits {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .why-join h2 {
+        font-size: 2.3rem;
+    }
+
+    .why-join .subtitle {
+        font-size: 1.15rem;
+    }
+
+    .benefit {
+        padding: 2.5rem 2rem;
+    }
+}
+
+/* Desktops */
+@media (min-width: 1024px) {
+    .hero-section {
+        padding: 5rem 3rem;
+    }
+
+    .mascot {
+        width: 740px;
+    }
+
+    .hero-text p {
+        font-size: 1.25rem;
+    }
+
+    .signup-btn {
+        font-size: 1.1rem;
+        padding: 1rem 2.5rem;
+    }
+
+    .kpis {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+    }
+
+    .kpi h3 {
+        font-size: 1.4rem;
+    }
+
+    .kpi p {
+        font-size: 1.2rem;
+    }
+
+    .kpi-img {
+        width: 120px;
+    }
+
+    .why-join {
+        padding: 5rem 3rem;
+    }
+
+    .benefit p {
+        font-size: 1.2rem;
+    }
+
+    .why-join h2 {
+        font-size: 2.6rem;
+    }
+
+    .why-join .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .cta p {
+        font-size: 1.2rem;
+    }
+}

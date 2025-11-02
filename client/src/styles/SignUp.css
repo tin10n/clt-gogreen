@@ -1,5 +1,9 @@
-/* ---------- LOGIN PAGE ---------- */
-.login-page {
+.error {
+	color: crimson;
+}
+
+/* ---------- SIGNUP PAGE ---------- */
+.signup-page {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -12,7 +16,7 @@
 }
 
 /* ---------- CONTAINER ---------- */
-.login-container {
+.signup-container {
 	background-color: #fffffff1;
 	width: 100%;
 	max-width: 400px;
@@ -22,7 +26,7 @@
 }
 
 /* ---------- TITLE ---------- */
-.login-title {
+.signup-title {
 	text-align: center;
 	margin-bottom: 1.5rem;
 	font-size: 1.75rem;
@@ -31,18 +35,18 @@
 }
 
 /* ---------- FORM ---------- */
-.login-form {
+.signup-form {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
 }
 
-.login-label {
+.signup-label {
 	font-size: 0.95rem;
 	color: #555;
 }
 
-.login-input {
+.signup-input {
 	width: 100%;
 	padding: 0.5rem;
 	border: 1px solid #d8d8d8;
@@ -51,13 +55,13 @@
 	transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.login-input:focus {
+.signup-input:focus {
 	border-color: #71BF44;
 	box-shadow: 0 0 0 3px rgba(74, 156, 74, 0.25);
 }
 
 /* ---------- BUTTON ---------- */
-.login-button {
+.signup-button {
 	background-color: #24824A;
 	color: #fff;
 	border: none;
@@ -68,38 +72,38 @@
 	transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.login-button:hover {
+.signup-button:hover {
 	background-color: #71BF44;
 	transform: translateY(-2px);
 }
 
 /* ---------- FOOTER ---------- */
-.login-footer {
+.signup-footer {
 	margin-top: 1.5rem;
 	text-align: center;
 	font-size: 0.9rem;
 	color: #666;
 }
 
-.login-footer a {
+.signup-footer a {
 	color: #4a9c4a;
 	text-decoration: none;
 	transition: color 0.3s ease;
 }
 
-.login-footer a:hover {
+.signup-footer a:hover {
 	color: #71BF44;
 }
 
 /* ---------- RESPONSIVE ---------- */
 @media (min-width: 768px) {
-	.login-container {
+	.signup-container {
 		max-width: 500px;
 	}
 }
 
 @media (min-width: 1024px) {
-	.login-container {
+	.signup-container {
 		max-width: 600px;
 	}
 }
