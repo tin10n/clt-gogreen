@@ -17,7 +17,7 @@ function Header() {
 
         {/* Desktop Nav */}
         <nav className={`nav--links ${menuOpen ? "open" : ""}`}>
-          <Link to="/game" onClick={() => setMenuOpen(false)}>Game</Link>
+          <Link to="/challenges" onClick={() => setMenuOpen(false)}>Challenges</Link>
           <Link to="/leaderboard" onClick={() => setMenuOpen(false)}>Leaderboard</Link>
           <Link to="/faq" onClick={() => setMenuOpen(false)}>FAQ</Link>
           <Link to="/login" className="login-btn" onClick={() => setMenuOpen(false)}>

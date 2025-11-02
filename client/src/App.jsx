@@ -6,7 +6,7 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Layout from './components/Layout';
 import Leaderboard from './pages/Leaderboard';
-import Game from './pages/Game';
+import Challenges from './pages/Challenges';
 import './styles/global.css';
 
 import Task from './components/Task';
@@ -21,7 +21,7 @@ function App() {
 					<Route path="/" element={<Home />} />
 					<Route path="/signup" element={<SignUp />} />
 					<Route path="/login" element={<Login />} />
-					<Route path="/game" element={<Game />} />
+					<Route path="/challenges" element={<Challenges />} />
 					<Route path="/leaderboard" element={<Leaderboard />} />
 					<Route path="/faq" element={<Faq />} />
 				</Routes>

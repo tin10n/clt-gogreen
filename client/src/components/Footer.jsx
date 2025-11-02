@@ -17,18 +17,18 @@ const Footer = () => {
 							</Link>
 						</li>
 						<li>
-							<Link to="/account" className="footer__link" aria-label="Account">
-								Account
-							</Link>
-						</li>
-						<li>
-							<Link to="/rewards" className="footer__link" aria-label="Rewards">
-								Rewards
+							<Link to="/challenges" className="footer__link" aria-label="Challenges">
+								Challenges
 							</Link>
 						</li>
 						<li>
 							<Link to="/leaderboard" className="footer__link" aria-label="Leaderboard">
 								Leaderboard
+							</Link>
+						</li>
+						<li>
+							<Link to="/faq" className="footer__link" aria-label="FAQ">
+								FAQ
 							</Link>
 						</li>
 					</ul>
