@@ -8,7 +8,7 @@ export default function Task() {
 
 	async function fetchTask() {
 		try {
-			const response = await fetch('http://localhost:8000/api', {
+			const response = await fetch('http://localhost:8000/api/task', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 			});
@@ -41,14 +41,31 @@ export default function Task() {
 						point_value: task.point_value,
 						completed: !task.completed,
 					};
-        		// Trigger animation only when marking as completed
+					// Trigger animation only when marking as completed
 					if (!task.completed) {
-						const emojis = ["🫘", "🫛", "🌱", "🌾", "🍀", "🌳", "🌿", "✨", "☀️", "🌸", "🪴", "🍂", "🌻", "🦋", "🌈", "💧"];
+						const emojis = [
+							'🫘',
+							'🫛',
+							'🌱',
+							'🌾',
+							'🍀',
+							'🌳',
+							'🌿',
+							'✨',
+							'☀️',
+							'🌸',
+							'🪴',
+							'🍂',
+							'🌻',
+							'🦋',
+							'🌈',
+							'💧',
+						];
 						const burstCount = Math.floor(Math.random() * 6) + 1; // random 1–6
-					
+
 						for (let j = 0; j < burstCount; j++) {
-							const bean = document.createElement("span");
-							bean.className = "bean";
+							const bean = document.createElement('span');
+							bean.className = 'bean';
 							bean.textContent = emojis[Math.floor(Math.random() * emojis.length)];
 							document.body.appendChild(bean);
 
