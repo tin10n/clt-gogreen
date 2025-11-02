@@ -1,0 +1,115 @@
+/* ------------------- BASE ------------------- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: color-mix(in srgb, var(--color-bg) 95%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid var(--color-primary-dark);
+  width: 100%;
+}
+
+.header--container {
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ------------------- LOGO ------------------- */
+.logo {
+  height: 75px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+.logo--link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* ------------------- NAV ------------------- */
+.nav--links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav--links a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav--links a:hover {
+  color: var(--color-primary-dark);
+}
+
+/* ------------------- LOG IN ------------------- */
+.login-btn {
+  background-color: var(--color-primary-dark);
+  color: var(--color-bg) !important;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: var(--color-primary-light);
+}
+
+/* ------------------- MENU ------------------- */
+.menu--toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.75rem;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+/* ------------------- RESPONSIVENESS ------------------- */
+@media (max-width: 768px) and (max-width: 1024px) {
+  .menu--toggle {
+    display: block;
+  }
+
+  .nav--links {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background-color: var(--color-bg);
+    border-top: 1px solid var(--color-primary-dark);
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    display: none;
+  }
+
+  .nav--links.open {
+    display: flex;
+  }
+}
+
+/* Large Screen (1440px and above) */
+@media screen and (min-width: 1800px) {
+  .logo {
+  height: 120px;
+  width: auto;
+  object-fit: contain;
+}
+.nav--links {
+  gap: 3rem;
+  font-size: 2rem;
+}
+
+.header--container {
+  padding: 0;
+}
+}

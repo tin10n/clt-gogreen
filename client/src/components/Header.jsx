@@ -1,36 +1,39 @@
 // src/components/Header.jsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import '../styles/shared.css';
+import Logo from "../images/logo-clt.png";
+import "../styles/header.css";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className="header">
-      <div className="logo-container">
+      <div className="header--container">
         {/* Logo */}
-        <Link to="/" className="logo" aria-label="CLT GoGreen - Home">
-          <span className="logoText">CLT GoGreen</span>
+        <Link to="/" className="logo--link">
+          <img src={Logo} alt="CLT GoGreen Logo" className="logo" />
         </Link>
+
+        {/* Desktop Nav */}
+        <nav className={`nav--links ${menuOpen ? "open" : ""}`}>
+          <Link to="/game" onClick={() => setMenuOpen(false)}>Game</Link>
+          <Link to="/leaderboard" onClick={() => setMenuOpen(false)}>Leaderboard</Link>
+          <Link to="/faq" onClick={() => setMenuOpen(false)}>FAQ</Link>
+          <Link to="/login" className="login-btn" onClick={() => setMenuOpen(false)}>
+            Log In
+          </Link>
+        </nav>
+
+        {/* Hamburger Button (Mobile only) */}
+        <button
+          className="menu--toggle"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? "✕" : "☰"}
+        </button>
       </div>
-
-      {/* Mobile: Hamburger Button */}
-      <button 
-        className="menu-toggle" 
-        onClick={() => setMenuOpen(!menuOpen)} 
-        aria-label="Toggle Menu"
-      >
-        ☰
-      </button>
-
-      {/* Desktop and Tablet Navigation */}
-      <ul className={`navbar-nav ${menuOpen ? 'active' : ''}`}>
-        <li><Link to="/account" className="nav-link">Account</Link></li>
-        <li><Link to="/faq" className="nav-link">FAQ</Link></li>
-        <li><Link to="/leaderboard" className="nav-link">Leaderboard</Link></li>
-        <li><Link to="/login" className="nav-link">Login</Link></li>
-      </ul>
     </header>
   );
 }

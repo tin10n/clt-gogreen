@@ -9,9 +9,6 @@ import Leaderboard from './pages/Leaderboard';
 import Game from './pages/Game';
 import './styles/global.css';
 
-//because I made a Layout component, we don't need to add Header and Footer component -JL
-import Header from './components/Header';
-import Footer from './components/Footer';
 import Task from './components/Task';
 import Faq from './pages/Faq';
 
