@@ -17,7 +17,7 @@ const Footer = () => {
 							</Link>
 						</li>
 						<li>
-							<Link to="/game" className="footer__link" aria-label="Challenges">
+							<Link to="/challenges" className="footer__link" aria-label="Challenges">
 								Challenges
 							</Link>
 						</li>
