@@ -6,9 +6,6 @@ import cors from 'cors';
 dotenv.config();
 app.use(cors());
 app.use(express.json());
-app.use('/api', require('./signUp'));
-app.use('/api', require('login'));
-
 
 import OpenAI from 'openai';
 
