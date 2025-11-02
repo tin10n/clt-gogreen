@@ -3,7 +3,7 @@ import Mascot2 from "../images/mascot2.png";
 import Task from "../components/Task";
 import "../styles/game.css";
 
-export default function Game() {
+export default function Challenges() {
   return (
     <section
       className="game--page">
