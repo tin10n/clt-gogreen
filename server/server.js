@@ -6,16 +6,18 @@ import cors from 'cors';
 dotenv.config();
 app.use(cors());
 app.use(express.json());
-app.use('/api', require('./signUp'));
 import OpenAI from 'openai';
+import apiRoutes from './routes/index.js';
 
 const openai = new OpenAI({
 	apiKey: process.env.OPENAI_APIKEY,
 });
 
+app.use('/api', apiRoutes);
+
 //output: {"raw_output":"```json\n{\n  \"task\": \"Plant a tree in your community\",\n  \"point_value\": 5\n}\n```"}
 
-app.post('/api', async (req, res) => {
+app.post('/api/task', async (req, res) => {
 	//used to have a theme related to the task
 	const theme = [
 		'waste reduction',
