@@ -1,4 +1,5 @@
 import path from 'path';
+import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import express from 'express';
 const app = express();
@@ -8,6 +9,10 @@ app.use(cors());
 app.use(express.json());
 import OpenAI from 'openai';
 import apiRoutes from './routes/index.js';
+
+// Fix for __dirname in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const openai = new OpenAI({
 	apiKey: process.env.OPENAI_APIKEY,
@@ -99,6 +104,13 @@ app.post('/submit-points', async (req, res) => {
 	// }
 
 	// // TODO: save points to database here
+});
+
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
+// ✨ ADD THIS: Handle React routing (must be LAST)
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
 const PORT = process.env.PORT || 8000;
