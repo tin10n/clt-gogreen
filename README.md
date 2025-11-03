@@ -12,13 +12,15 @@
 
 ## 🧩 Features
 
-- ✅ **User Dashboard:** Track challenges, progress, and total beans earned  
-- 🌿 **Sustainability Challenges:** Complete eco-friendly tasks and submit proof for rewards  
 - 🤖 **AI Integration:** Uses OpenAI API to provide sustainability tips, challenge suggestions, and eco-feedback  
-- 🔒 **Authentication:** Secure login/signup (JWT-based)  
 - 💾 **CRUD Functionality:** Create, Read, Update, and Delete user tasks and submissions  
 - 📊 **Leaderboard:** See the community impact  
 - ☁️ **Cloud Deployed:** Hosted with Render (frontend + backend) and AWS (database)
+
+**Features Under Maintenance***
+- ✅ **User Dashboard:** Track challenges, progress, and total beans earned
+- 🔒 **Authentication:** Secure login/signup (JWT-based)  
+- 🌿 **Sustainability Challenges:** Complete eco-friendly tasks and submit proof for rewards  
 
 ---
 
