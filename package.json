@@ -1,4 +1,13 @@
 {
+	"name": "gogreen-project",
+	"private": true,
+	"version": "1.0.0",
+	"description": "Full-stack GoGreen sustainability project",
+	"scripts": {
+		"client": "npm run dev --prefix client",
+		"server": "npm run dev --prefix server",
+		"dev": "concurrently \"npm run server\" \"npm run client\""
+	},
 	"dependencies": {
 		"bcrypt": "^6.0.0",
 		"cors": "^2.8.5",
@@ -12,11 +21,5 @@
 	},
 	"devDependencies": {
 		"concurrently": "^9.2.1"
-	},
-	"scripts": {
-		"client": "npm start --prefix client",
-		"server": "npm start --prefix server",
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"dev": "concurrently \"npm run server\" \"npm run client\""
 	}
 }
