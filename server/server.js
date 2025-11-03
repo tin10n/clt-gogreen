@@ -101,5 +101,12 @@ app.post('/submit-points', async (req, res) => {
 	// // TODO: save points to database here
 });
 
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
+
+app.get(/^\/(?!api).*/, (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
+
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, '0.0.0.0', () => console.log(`✅ Server running on http://localhost:${PORT}`));
