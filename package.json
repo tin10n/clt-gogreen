@@ -6,7 +6,8 @@
 	"scripts": {
 		"client": "npm run dev --prefix client",
 		"server": "npm run dev --prefix server",
-		"dev": "concurrently \"npm run server\" \"npm run client\""
+		"dev": "concurrently \"npm run server\" \"npm run client\"",
+		"start": "node server/server.js"
 	},
 	"dependencies": {
 		"bcrypt": "^6.0.0",
