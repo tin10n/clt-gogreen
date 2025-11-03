@@ -12,6 +12,18 @@
     align-items: center;
 }
 
+.task-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.task-container > button,
+.task-container form button {
+  align-self: center;
+}
+
 @media (min-width: 768px) {
     .task-page {
         /* background-image: url("../images/task_deskbg.png");  */
