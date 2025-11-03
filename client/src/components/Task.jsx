@@ -87,17 +87,19 @@ export default function Task() {
 			});
 		});
 	}
-
 	async function handleSubmit(e) {
 		e.preventDefault();
-
-		//if task is completed
-		const totalPoints = currentTask.reduce((acc, task) => {
-			return task.completed ? acc + task.point_value : acc;
-		}, 0);
-
+		const totalPoints = currentTask.reduce((acc, task) => (task.completed ? acc + task.point_value : acc), 0);
 		console.log('Sending points:', totalPoints);
-
+		// Minimal camera prompt
+		try {
+			const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+			const video = document.getElementById('camera');
+			if (video) video.srcObject = stream;
+		} catch (err) {
+			console.error('Camera access denied:', err);
+		}
+		// Send points
 		try {
 			const response = await fetch('http://localhost:8000/submit-points', {
 				method: 'POST',
@@ -110,7 +112,6 @@ export default function Task() {
 			console.error('Error sending points:', err);
 		}
 	}
-
 	return (
 		<div className="task-container">
 			<form onSubmit={handleSubmit}>
