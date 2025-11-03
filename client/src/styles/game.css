@@ -17,6 +17,7 @@
 
 /* --- Mascot Container --- */
 .mascot--container {
+	bottom: 0;
 	position: absolute;
 	display: flex;
 	justify-content: center;
@@ -29,7 +30,7 @@
 
 .mascot2 {
 	width: auto;
-	height: auto;
+	height: 180px;
 	animation: float 3s ease-in-out infinite;
 	transition: transform 0.3s ease;
 	filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.3));
@@ -211,7 +212,7 @@ button:focus-visible {
 	.game__task--container {
 		max-width: 500px;
 		position: relative;
-		width: 40%;
+		width: 60%;
 		justify-content: flex-end;
 		bottom: 0;
 		z-index: 1;
@@ -219,11 +220,11 @@ button:focus-visible {
 
 	.mascot2 {
 		width: auto;
-		height: auto;
+		height: 220px;
 	}
 
 	.mascot--container {
-		width: 40%;
+		/* width: 40%; */
 		justify-content: flex-end;
 		position: relative;
 		margin-top: 32rem;
@@ -253,7 +254,7 @@ button:focus-visible {
 
 	.mascot2 {
 		width: auto;
-		height: 450px;
+		height: 320px;
 		position: absolute;
 	}
 

@@ -1,6 +1,7 @@
 // src/pages/Leaderboard.jsx
 
 import React from 'react';
+import { Link } from "react-router-dom";
 import '../styles/leaderboard.css';
 
 const topTeams = [
@@ -110,7 +111,7 @@ const Leaderboard = () => {
             <p>
               Want to see your team on the leaderboard? Start completing tasks today!
             </p>
-            <a href="/login" target="_blank"> <button className="btn-primary">Join Your Team</button> </a>
+            <Link to="/login"> <button className="btn-primary">Join Your Team</button> </Link>
           </div>
         </div>
       </div>
