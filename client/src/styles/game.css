@@ -1,30 +1,40 @@
+:root {
+	--nav-height: 5rem; /* adjust if your nav bar height is different */
+	--footer-height: 5rem; /* optional footer height */
+}
+
+/* --- Game Page --- */
 .game--page {
-	height: 100vh;
+	min-height: 100dvh; /* mobile safe viewport */
 	width: 100%;
 	background-image: url('../images/task_mobilebg.png');
 	background-size: cover;
 	background-repeat: no-repeat;
+	background-position: center;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background-position: center;
-	justify-content: flex-end;
+	justify-content: flex-start; /* start below nav bar */
 	color: var(--color-text);
-	overflow: hidden;
 	position: relative;
 	transition: background-image 0.3s ease-in-out;
+	padding-top: var(--nav-height); /* space for nav */
+	padding-bottom: 2rem; /* safe bottom padding */
+	box-sizing: border-box;
+	overflow-x: hidden;
+	overflow-y: auto; /* allow scrolling if needed */
+	scroll-behavior: smooth;
 }
 
 /* --- Mascot Container --- */
 .mascot--container {
-	bottom: 0;
 	position: absolute;
+	bottom: 2rem; /* distance from bottom */
 	display: flex;
 	justify-content: center;
-	bottom: 5rem;
 	align-items: center;
 	width: 100%;
-	z-index: 10;
+	z-index: 5;
 	pointer-events: none;
 }
 
@@ -32,11 +42,10 @@
 	width: auto;
 	height: 180px;
 	animation: float 3s ease-in-out infinite;
-	transition: transform 0.3s ease;
 	filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.3));
+	transition: transform 0.3s ease;
 }
 
-/* --- Floating Animation --- */
 @keyframes float {
 	0% {
 		transform: translateY(0px);
@@ -57,11 +66,11 @@
 	align-items: center;
 	width: 90%;
 	max-width: 450px;
-	background-color: rgba(255, 255, 255, 0.9);
+	background-color: rgba(255, 255, 255, 0.95);
 	border-radius: 20px;
-	padding: 1.5rem 1.4rem;
+	padding: 1.5rem 1.5rem;
 	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-	margin-bottom: 20rem; /* pushes it above mascot */
+	margin: 1rem 0; /* mobile safe margin */
 	backdrop-filter: blur(10px);
 	z-index: 10;
 	animation: slideUp 0.6s ease-out;
@@ -78,39 +87,27 @@
 	}
 }
 
-/* --- Task List --- */
-.task-items {
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	width: 100%;
-	padding: 0.8rem 1rem;
-	border-radius: 12px;
-	background: rgba(46, 125, 50, 0.08);
-	margin: 0.4rem 0;
-	transition: all 0.25s ease;
-	cursor: pointer;
-}
-
+/* --- Task Items --- */
 .task {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	width: 100%;
 	padding: 0.7rem 1rem;
 	border-radius: 10px;
 	background-color: rgba(36, 130, 74, 0.1);
 	transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.task-item.completed {
-	background: rgba(200, 255, 200, 0.9);
-	text-decoration: line-through;
+	margin: 0.3rem 0;
 }
 
 .task:hover {
 	transform: translateY(-2px);
 	background-color: rgba(36, 130, 74, 0.2);
+}
+
+.task-item.completed {
+	background: rgba(200, 255, 200, 0.9);
+	text-decoration: line-through;
 }
 
 .task input[type='checkbox'] {
@@ -119,32 +116,14 @@
 	cursor: pointer;
 }
 
-.task label {
-	cursor: pointer;
-}
-
 /* --- Buttons --- */
-button {
-	background-color: var(--color-primary-light);
-	border: none;
-	padding: 0.7rem 1.2rem;
-	border-radius: 10px;
-	font-weight: 400;
-	cursor: pointer;
-	color: var(--color-bg);
-	margin-top: 0.5rem;
-	transition: background-color 0.2s ease, transform 0.2s ease;
-	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
-}
-
-button:hover {
-	background-color: var(--color-secondary-legacy);
-	transform: scale(1.05);
-}
-
-button:focus-visible {
-	outline: 2px solid var(--color-highlight);
-	outline-offset: 3px;
+.button-group {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.8rem;
+	width: 100%;
+	margin-top: 1rem;
 }
 
 /* --- Loader --- */
@@ -199,7 +178,7 @@ button:focus-visible {
 	border-color: var(--color-secondary-legacy);
 }
 
-/* --- Responsive --- */
+/* --- Responsive Desktop --- */
 @media (min-width: 768px) {
 	.game--page {
 		flex-direction: row;
@@ -211,32 +190,21 @@ button:focus-visible {
 
 	.game__task--container {
 		max-width: 500px;
-		position: relative;
-		width: 60%;
-		justify-content: flex-end;
-		bottom: 0;
-		z-index: 1;
+		width: 100%;
+		margin: 0 0 2rem 2rem;
 	}
 
 	.mascot2 {
-		width: auto;
 		height: 220px;
 	}
 
 	.mascot--container {
-		/* width: 40%; */
-		justify-content: flex-end;
 		position: relative;
-		margin-top: 32rem;
-		z-index: 1;
-		bottom: rem;
+		margin-top: 0;
 	}
 
-	.game__task--container {
-		width: 60%;
-		margin-bottom: 0;
-		margin-left: 2rem;
-		z-index: 10;
+	.button-group {
+		flex-direction: row; /* side-by-side on desktop */
 	}
 }
 
@@ -246,22 +214,14 @@ button:focus-visible {
 		padding-top: 6rem;
 	}
 
-	.mascot--container {
-		width: 40%;
-		justify-content: flex-end;
-		position: relative;
-	}
-
 	.mascot2 {
-		width: auto;
 		height: 320px;
-		position: absolute;
 	}
 
 	.game__task--container {
 		width: 90%;
 		margin-left: 2rem;
 		padding: 2rem;
-		margin-bottom: 10rem;
+		margin-bottom: 6rem;
 	}
 }

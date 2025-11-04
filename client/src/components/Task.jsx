@@ -101,7 +101,7 @@ export default function Task() {
 		}
 		// Send points
 		try {
-			const response = await fetch('http://localhost:8000/submit-points', {
+			const response = await fetch('/submit-points', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ points_earned: totalPoints }),

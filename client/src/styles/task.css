@@ -1,35 +1,153 @@
+:root {
+	--header-height: 80px;
+	--footer-height: 60px;
+}
+
+/* PAGE WRAPPER */
 .task-page {
-    height: 100vh;
-    /* background-image: url("../images/task_mobilebg.png"); */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+	/* Safe height that respects mobile browser bars */
+	min-height: calc(100dvh - var(--header-height) - var(--footer-height));
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	/* This ensures content starts below the header */
+	padding-top: calc(var(--header-height) + 1rem);
+	padding-bottom: calc(var(--footer-height) + 1rem);
+	box-sizing: border-box;
+	position: relative;
+	width: 100%;
 }
 
+/* CONTAINER */
 .task-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	width: 100%;
+	max-width: 600px;
+	padding: 20px;
+	margin: 0 auto;
+	background: rgba(255, 255, 255, 0.9);
+	border-radius: 16px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	box-sizing: border-box;
 }
 
+/* FORM */
 .task-container form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	gap: 12px;
 }
 
-.task-container > button,
+/* TASK ITEMS */
+.task-item {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.85);
+	border-radius: 12px;
+	padding: 10px 16px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.task-item:hover {
+	background-color: rgba(255, 255, 255, 0.95);
+	transform: scale(1.02);
+}
+
+.task-item input[type='checkbox'] {
+	flex-shrink: 0;
+	width: 20px;
+	height: 20px;
+	margin-right: 12px;
+	accent-color: #4caf50;
+}
+
+.task-item span {
+	flex: 1;
+	font-size: 1rem;
+	color: #333;
+	word-break: break-word;
+	line-height: 1.4;
+}
+
+/* BUTTONS */
+.task-container button,
 .task-container form button {
-  align-self: center;
+	align-self: center;
+	width: 200px;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 8px;
+	background-color: #4caf50;
+	color: white;
+	font-weight: 600;
+	margin-top: 1rem;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background-color 0.3s ease, transform 0.2s ease;
+	text-align: center;
 }
 
-@media (min-width: 768px) {
-    .task-page {
-        /* background-image: url("../images/task_deskbg.png");  */
-        background-size: cover;
-        background-position: center;
-    }
+.task-container button:hover,
+.task-container form button:hover {
+	background-color: #43a047;
+	transform: scale(1.03);
 }
 
+/* BUTTON SPACING */
+.submit-btn {
+	margin-top: 15px;
+}
 
+.refresh-btn {
+	margin-top: 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+	.task-page {
+		padding-top: calc(var(--header-height) + 1.5rem);
+		padding-bottom: calc(var(--footer-height) + 1.5rem);
+	}
+
+	.task-item {
+		padding: 12px;
+		font-size: 0.95rem;
+	}
+
+	.task-item span {
+		font-size: 0.95rem;
+	}
+
+	.task-container button,
+	.task-container form button {
+		width: 100%;
+		max-width: 300px;
+		font-size: 0.95rem;
+		margin-top: 1rem;
+	}
+
+	.task-container {
+		padding: 15px;
+		margin: 10px;
+	}
+}
+
+/* SUBTLE BACKGROUND FADE */
+.task-page::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
+	z-index: -1;
+}

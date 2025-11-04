@@ -41,7 +41,7 @@ app.post('/api/task', async (req, res) => {
 	const systemPrompt = `
 You are an eco-friendly task generator that creates unique, creative, and practical sustainability challenges based updone the theme of ${randomTheme}.
 
-Each time you are called, you must generate a *different* eco-friendly task related to sustainability, recycling, energy saving, transportation, water use, or environmental awareness.
+Each time you are called, you must generate a *different* eco-friendly task related to sustainability, recycling, energy saving, transportation, water use, or environmental awareness. (15 words)
 
 Assign a difficulty rating called "point_value" on a scale of 1–5 based on the effort required. Make 5 total task with the difficulty 1,2,3,4,5.
 1 = very easy everyday habit (e.g., reuse a water bottle)
