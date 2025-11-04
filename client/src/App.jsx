@@ -11,6 +11,8 @@ import './styles/global.css';
 
 import Task from './components/Task';
 import Faq from './pages/Faq';
+import TermsOfService from './pages/Terms';
+import PrivacyPolicy from './pages/Privacy';
 
 function App() {
 	return (
@@ -24,6 +26,8 @@ function App() {
 					<Route path="/challenges" element={<Challenges />} />
 					<Route path="/leaderboard" element={<Leaderboard />} />
 					<Route path="/faq" element={<Faq />} />
+					<Route path="/privacy" element={<PrivacyPolicy />} />
+					<Route path="/terms" element={<TermsOfService />} />
 				</Routes>
 			</Layout>
 		</BrowserRouter>
