@@ -24,3 +24,4 @@ router.get('/leaderboard', async (_req, res) => {
 });
 
 export default router;
+
