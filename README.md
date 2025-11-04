@@ -6,7 +6,7 @@
 
 ## 🚀 Live Demo
 
-🌍 **App URL:** [https://clt-go-green.onrender.com](https://clt-go-green.onrender.com)  
+🌍 **App URL:** [https://clt-gogreen.onrender.com](https://clt-go-green.onrender.com)  
 
 ---
 
@@ -63,7 +63,7 @@ Render account for deployment
 
 **Local Setup**
 ### 1. Clone the repository
-git clone https://github.com/yourusername/clt-go-green.git
+git clone https://github.com/yourusername/clt-gogreen.git
 cd clt-go-green
 
 ### 2. Install dependencies
