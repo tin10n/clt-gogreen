@@ -71,7 +71,7 @@ npm install
 
 ### 3. Set up environment variables
 cp .env.example .env
-# Edit the .env file with your database + API keys
+Edit the .env file with your database + API keys
 
 ### 4. Start the backend
 cd server
