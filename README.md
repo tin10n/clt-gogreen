@@ -62,22 +62,22 @@ OpenAI API key
 Render account for deployment
 
 **Local Setup**
-# 1. Clone the repository
+### 1. Clone the repository
 git clone https://github.com/yourusername/clt-go-green.git
 cd clt-go-green
 
-# 2. Install dependencies
+### 2. Install dependencies
 npm install
 
-# 3. Set up environment variables
+### 3. Set up environment variables
 cp .env.example .env
 # Edit the .env file with your database + API keys
 
-# 4. Start the backend
+### 4. Start the backend
 cd server
 npm run dev
 
-# 5. Start the frontend
+### 5. Start the frontend
 cd ../client
 npm run dev
 
