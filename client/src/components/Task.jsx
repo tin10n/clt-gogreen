@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import '../styles/task.css';
 import mobileBg from '../images/task_mobilebg.png';
+import Dashboard from './Dashboard';
 
 export default function Task() {
 	const [currentTask, setTask] = useState([]);
@@ -103,6 +104,7 @@ export default function Task() {
 		try {
 			const response = await fetch('/submit-points', {
 				method: 'POST',
+				credentials: 'include',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ points_earned: totalPoints }),
 			});

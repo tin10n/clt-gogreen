@@ -1,0 +1,128 @@
+/* DASHBOARD PAGE BASE */
+.dashboard-page {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	background: linear-gradient(to bottom right, rgba(240, 255, 240, 0.8), rgba(255, 255, 255, 0.9));
+	box-sizing: border-box;
+}
+
+/* CONTAINER */
+.dashboard-container {
+	width: 100%;
+	max-width: 600px;
+	padding: 24px;
+	background: rgba(255, 255, 255, 0.95);
+	border-radius: 16px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
+
+/* TITLES */
+.dashboard-title {
+	font-size: 1.8rem;
+	font-weight: 700;
+	color: #2e7d32;
+	margin-bottom: 8px;
+}
+
+.dashboard-subtitle {
+	font-size: 1rem;
+	color: #555;
+	margin-bottom: 24px;
+}
+
+/* CONTENT SECTION */
+.dashboard-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.5rem;
+}
+
+/* SCORE CARD */
+.dashboard-card {
+	width: 100%;
+	padding: 20px;
+	border-radius: 12px;
+	background-color: rgba(255, 255, 255, 0.85);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.dashboard-card:hover {
+	transform: scale(1.02);
+	background-color: rgba(255, 255, 255, 0.95);
+}
+
+.dashboard-card h2 {
+	color: #388e3c;
+	font-size: 1.2rem;
+	margin-bottom: 10px;
+}
+
+.dashboard-score {
+	font-size: 1.1rem;
+	color: #444;
+}
+
+/* BUTTONS */
+.dashboard-actions {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	width: 100%;
+	align-items: center;
+}
+
+.dashboard-btn {
+	width: 80%;
+	max-width: 300px;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 8px;
+	font-size: 1rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dashboard-btn:hover {
+	transform: scale(1.03);
+}
+
+/* Button variants */
+.green-btn {
+	background-color: #4caf50;
+	color: white;
+}
+
+.green-btn:hover {
+	background-color: #43a047;
+}
+
+.logout-btn {
+	background-color: #ef5350;
+	color: white;
+}
+
+.logout-btn:hover {
+	background-color: #e53935;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+	.dashboard-container {
+		margin: 10px;
+		padding: 18px;
+	}
+
+	.dashboard-title {
+		font-size: 1.5rem;
+	}
+
+	.dashboard-btn {
+		width: 100%;
+		font-size: 0.95rem;
+	}
+}
