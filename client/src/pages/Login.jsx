@@ -2,69 +2,99 @@ import { useState } from 'react';
 import '../styles/login.css';
 
 export default function Login() {
-	let [formData, setFormData] = useState({
+	const [formData, setFormData] = useState({
 		email: '',
 		password: '',
 	});
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState('');
 
-	// setFormData((prev) => ({ ...prev, [name]: value })); Shorthand for updataFormFeild
-	function updateFormFeild(fieldName, fieldValue) {
-		let newFormData = {
-			email: formData.email,
-			password: formData.password,
-		};
-
-		//allows data to be shown when typing
-		newFormData[fieldName] = fieldValue;
-
-		//Sets the user info
-		setFormData(newFormData);
+	function updateFormField(fieldName, fieldValue) {
+		setFormData((prev) => ({
+			...prev,
+			[fieldName]: fieldValue,
+		}));
 	}
 
-	//On submit the user data will be sent to the backend
-	function handleSubmit(e) {
+	async function handleSubmit(e) {
 		e.preventDefault();
-		console.log(formData);
+		setError('');
+		setLoading(true);
+
+		try {
+			const res = await fetch('/api/login', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(formData),
+			});
+
+			const data = await res.json();
+
+			if (!res.ok) {
+				throw new Error(data.error || 'Login failed');
+			}
+
+			// ✅ Save the token & user info in localStorage (optional)
+			localStorage.setItem('token', data.token);
+			localStorage.setItem('user', JSON.stringify(data.user));
+
+			alert(`Welcome back, ${data.user.name || 'User'}!`);
+			console.log('Logged in user:', data.user);
+
+			// ✅ Redirect (adjust path to your app)
+			window.location.href = '/dashboard';
+		} catch (err) {
+			console.error('Login error:', err);
+			setError(err.message);
+		} finally {
+			setLoading(false);
+		}
 	}
 
-	//renders the users data while typing
 	function handleChange(e) {
-		//Deconstructing the name (i.e password) value (1234) within the current input form
 		const { name, value } = e.target;
-		updateFormFeild(name, value);
+		updateFormField(name, value);
 	}
 
 	return (
-		<>
-			<div className="login-page">
-				<div className="login-container">
-					<h2 className="login-title">Welcome Back</h2>
+		<div className="login-page">
+			<div className="login-container">
+				<h2 className="login-title">Welcome Back</h2>
 
-					<form className="login-form" onSubmit={handleSubmit}>
-						<label className="login-label">Email</label>
-						<input className="login-input" name="email" value={formData.email} type="email" onChange={handleChange} />
+				<form className="login-form" onSubmit={handleSubmit}>
+					<label className="login-label">Email</label>
+					<input
+						className="login-input"
+						name="email"
+						value={formData.email}
+						type="email"
+						onChange={handleChange}
+						required
+					/>
 
-						<label className="login-label">Password</label>
-						<input
-							className="login-input"
-							name="password"
-							value={formData.password}
-							type="password"
-							onChange={handleChange}
-						/>
+					<label className="login-label">Password</label>
+					<input
+						className="login-input"
+						name="password"
+						value={formData.password}
+						type="password"
+						onChange={handleChange}
+						required
+					/>
 
-						<button className="login-button" type="submit">
-							Log In
-						</button>
-					</form>
+					<button className="login-button" type="submit" disabled={loading}>
+						{loading ? 'Logging in...' : 'Log In'}
+					</button>
 
-					<div className="login-footer">
-						<p>
-							Don’t have an account? <a href="/signup">Sign up here</a>
-						</p>
-					</div>
+					{error && <p className="error-text">{error}</p>}
+				</form>
+
+				<div className="login-footer">
+					<p>
+						Don’t have an account? <a href="/signup">Sign up here</a>
+					</p>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }

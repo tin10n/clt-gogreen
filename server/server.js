@@ -9,6 +9,35 @@ app.use(cors());
 app.use(express.json());
 import OpenAI from 'openai';
 import apiRoutes from './routes/index.js';
+import loginRouter from './routes/logIn.js';
+import session from 'express-session';
+
+import MySQLStoreFactory from 'express-mysql-session';
+const MySQLStore = MySQLStoreFactory(session);
+
+const sessionStore = new MySQLStore({
+	host: process.env.DB_HOST || 'localhost',
+	user: process.env.DB_USER || 'root',
+	password: process.env.DB_PASSWORD || '',
+	database: process.env.DB_NAME || 'gogreen',
+});
+const JWT_SECRET = process.env.JWT_SECRET || 'dev-secret';
+
+app.use(
+	session({
+		key: 'user_session',
+		secret: JWT_SECRET,
+		store: sessionStore,
+		resave: false,
+		saveUninitialized: false,
+		cookie: {
+			maxAge: 1000 * 60 * 60 * 2,
+			httpOnly: true,
+			secure: false,
+			sameSite: 'lax',
+		},
+	})
+);
 import db from './db.js'
 // Fix for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -19,6 +48,7 @@ const openai = new OpenAI({
 });
 
 app.use('/api', apiRoutes);
+app.use('/api', loginRouter);
 
 //output: {"raw_output":"```json\n{\n  \"task\": \"Plant a tree in your community\",\n  \"point_value\": 5\n}\n```"}
 
