@@ -18,7 +18,7 @@
 	color: var(--color-text);
 	position: relative;
 	transition: background-image 0.3s ease-in-out;
-	padding-bottom: 2rem; /* safe bottom padding */
+	padding-bottom: 15rem; /* safe bottom padding */
 	box-sizing: border-box;
 	overflow-x: hidden;
 	overflow-y: auto; /* allow scrolling if needed */
@@ -177,6 +177,10 @@
 	border-color: var(--color-secondary-legacy);
 }
 
+.overlay-container {
+	z-index: auto;
+	margin-bottom: 10rem;
+}
 /* --- Responsive Desktop --- */
 @media (min-width: 768px) {
 	.game--page {
@@ -198,7 +202,8 @@
 	}
 
 	.mascot--container {
-		position: absolute;
+		position: relative;
+		margin-top: 35rem;
 	}
 
 	.button-group {

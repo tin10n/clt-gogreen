@@ -42,7 +42,7 @@ export default function Login() {
 			console.log('Logged in user:', data.user);
 
 			// ✅ Redirect (adjust path to your app)
-			window.location.href = '/dashboard';
+			window.location.href = '/challenges';
 		} catch (err) {
 			console.error('Login error:', err);
 			setError(err.message);
