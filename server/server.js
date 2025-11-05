@@ -38,7 +38,7 @@ app.use(
 		},
 	})
 );
-import db from './db.js'
+import db from './db.js';
 // Fix for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -135,8 +135,6 @@ app.post('/submit-points', async (req, res) => {
 
 	// // TODO: save points to database here
 });
-
-
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
