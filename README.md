@@ -6,7 +6,7 @@
 
 ## 🚀 Live Demo
 
-🌍 **App URL:** [https://clt-gogreen.onrender.com](https://clt-go-green.onrender.com)  
+🌍 **App URL:** [https://clt-gogreen.onrender.com](https://clt-gogreen.onrender.com)  
 
 ---
 
